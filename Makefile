@@ -1,3 +1,5 @@
+.PHONY: compile
+
 upload: compile
 	arduino-cli upload -p /dev/ttyUSB0 --input-dir ./build/ . 
 
@@ -17,3 +19,7 @@ build-dir:
 build-dir-uno:
 	mkdir -p ./build-uno
 	mkdir -p ./build-uno/cache
+
+clean:
+	-rm -r ./build-uno/
+	-rm -r ./build/
